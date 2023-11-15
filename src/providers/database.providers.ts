@@ -14,7 +14,7 @@ export const databaseProviders = [
         port: 3306,
         username: 'root',
         password: 'my-secret-pw',
-        database: 'nest',
+        database: 'nestjs',
       });
       sequelize.addModels([Task, Item, ItemTask, Currency]);
       await sequelize.sync();
