@@ -3,6 +3,7 @@
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
@@ -60,7 +61,8 @@ $ yarn run test:cov
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If
+you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
@@ -72,27 +74,27 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-
 ## Database
 
 https://hub.docker.com/_/mysql
 
 https://towardsdatascience.com/connect-to-mysql-running-in-docker-container-from-a-local-machine-6d996c574e55
 
-
-docker run --name=mysql-docker -p3306:3306 -v mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:8.0.20
+docker run --name=mysql-docker -p3306:3306 -v mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d
+mysql/mysql-server:8.0.20
 
 docker exec -it mysql-docker bash
 
 bash-4.2# mysql -u root -p
 
-mysql> CREATE DATABASE MYSQLTEST;
+mysql> CREATE DATABASE <name>;
 
 mysql> update mysql.user set host = '%' where user='root';
 
 // docker volume create phpmyadmin-volume
 
-docker run --name phpmyadmin-docker -v phpmyadmin-volume:/etc/phpmyadmin/config.user.inc.php --link mysql-docker:db -p 82:80 -d phpmyadmin/phpmyadmin
+docker run --name phpmyadmin-docker -v phpmyadmin-volume:/etc/phpmyadmin/config.user.inc.php --link mysql-docker:db -p
+82:80 -d phpmyadmin/phpmyadmin
 
 http://0.0.0.0:82/    login: root, password: my-secret-password
 
