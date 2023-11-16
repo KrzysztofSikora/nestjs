@@ -23,7 +23,6 @@ export class PlayerResolver {
   async createPlayer(
     @Args('createPlayerInput') createPlayerInput: CreatePlayerInput,
   ): Promise<Player> {
-    console.log('create');
     return this.playersService.create(createPlayerInput);
   }
 
@@ -31,7 +30,6 @@ export class PlayerResolver {
   async updatePlayer(
     @Args('updatePlayerInput') updatePlayerInput: UpdatePlayerInput,
   ) {
-    console.log('update');
     return this.playersService.update(updatePlayerInput.id, updatePlayerInput);
   }
 
@@ -41,5 +39,13 @@ export class PlayerResolver {
   ): Promise<boolean> {
     await this.playersService.remove(id);
     return true;
+  }
+
+  /* 5 drużyna konkretnego gracza */
+  @Query(() => PlayerType)
+  async teamsOfPlayer(
+    @Args('id', { type: () => Int }) id: number,
+  ): Promise<any> {
+    return this.playersService.findTeamByPlayer(id);
   }
 }

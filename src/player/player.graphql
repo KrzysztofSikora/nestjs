@@ -23,9 +23,11 @@ input UpdatePlayerInput {
 type Query {
     players: [Player]
     player(id: Int!): Player
-    
+
     teams: [Team]
     team(id: Int!): Team
+    playersOfTeam(id: Int!): [Player]
+    teamsOfPlayer(id: Int!): Team
 }
 
 type Mutation {

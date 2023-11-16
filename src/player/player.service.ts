@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Player } from './player.model';
 import { CreatePlayerInput, UpdatePlayerInput } from './player.dto';
+import { Team } from '../teams/team.model';
 
 @Injectable()
 export class PlayersService {
@@ -40,5 +41,17 @@ export class PlayersService {
   async remove(id: number): Promise<void> {
     const player = await this.playerModel.findByPk(id);
     await player.destroy();
+  }
+
+  async findTeamByPlayer(playerId: number): Promise<Team | null> {
+    const player = await this.playerModel.findByPk(playerId, {
+      include: [{ model: Team, as: 'team' }],
+    });
+
+    if (!player) {
+      throw new Error('Player not found');
+    }
+
+    return player.team;
   }
 }
