@@ -10,9 +10,6 @@ export class CreatePlayerInput {
 
   @Field(() => Int)
   number: number;
-
-  // @Field(() => Int)
-  // readonly teamId: number;
 }
 
 @InputType()

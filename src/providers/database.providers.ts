@@ -1,6 +1,8 @@
-import { Player } from '../player/player.model';
+import { Player } from '../players/player.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Team } from '../teams/team.model';
+import { MatchTeam } from '../match-team/match-team.model';
+import { Match } from '../matches/match.model';
 
 export const databaseProviders = [
   SequelizeModule.forRoot({
@@ -14,5 +16,5 @@ export const databaseProviders = [
     synchronize: true,
   }),
 
-  SequelizeModule.forFeature([Player, Team]),
+  SequelizeModule.forFeature([Player, Team, Match, MatchTeam]),
 ];

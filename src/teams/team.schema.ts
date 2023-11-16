@@ -1,6 +1,4 @@
-import {Field, ID, ObjectType} from '@nestjs/graphql';
-
-// import { TeamType } from './team.schema';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class TeamType {
@@ -9,7 +7,4 @@ export class TeamType {
 
   @Field()
   name: string;
-
-  // @Field(() => TeamType)
-  // team: TeamType;
 }

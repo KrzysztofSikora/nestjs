@@ -3,14 +3,35 @@ type Player {
     firstName: String
     lastName: String
     number: Int
-    #    team: Team!
 }
+type Match {
+    id: ID!
+    place: String
+    date: String
+    teams: [Team]
+}
+
+type Team {
+    id: Int!
+    name: String!
+    players: [Player]
+}
+type MatchTeam {
+    matchId: Int
+    place: String
+    date: String
+    playerId: Int
+    firstName: String
+    lastName: String
+    teamId: Int
+    teamName: String
+}
+
 
 input CreatePlayerInput {
     firstName: String!
     lastName: String!
     number: Int!
-    #    teamId: Int!
 }
 
 input UpdatePlayerInput {
@@ -28,6 +49,10 @@ type Query {
     team(id: Int!): Team
     playersOfTeam(id: Int!): [Player]
     teamsOfPlayer(id: Int!): Team
+
+    matches: [Match]
+    teamsWithPlayers(matchId: Int!): Match
+    matchListWithTeams(id: Int!): [MatchTeam]
 }
 
 type Mutation {
@@ -35,3 +60,4 @@ type Mutation {
     updatePlayer(updatePlayerInput: UpdatePlayerInput!): Player!
     removePlayer(id: Int!): Boolean!
 }
+
